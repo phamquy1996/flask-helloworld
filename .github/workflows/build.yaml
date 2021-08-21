@@ -18,11 +18,7 @@ jobs:
             
             - name: Setup Docker Buildx
               uses: docker/setup-buildx-action@v1
-              id: Buildx
-            
-            - name: Build an Push Docker Image
-              uses: docker/setup-buildx-action@v1
-              id: bulldx
+              id: buildx
 
             - name: Build an Push Docker Image
               uses: docker/build-push-action@v2
