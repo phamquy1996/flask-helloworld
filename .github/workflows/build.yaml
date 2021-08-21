@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./docker/deploy_dev/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: |
             ${{ steps.login-ecr.outputs.registry }}/development/zwei-mis/web:${{ github.sha }}
@@ -75,7 +75,7 @@ jobs:
         task-definition: ecs/development/task-definition.json
         container-name: zwei-dev-container
         image: ${{ steps.login-ecr.outputs.registry }}/development/zwei-mis/web:${{ github.sha }}
-        
+
       - name: Deploy to Amazon ECS service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
