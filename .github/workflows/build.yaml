@@ -1,11 +1,7 @@
-name: Deploy Dev
-
+name: flask-helloworld
 on:
-  push:
-    branches:
-      - develop
-      - feature/setup-dev
-  workflow_dispatch:
+    push:
+        brancher: [master]
 
 jobs:
   deploy-dev:
@@ -24,3 +20,4 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses:  aws-actions/amazon-ecr-login@v1 
+              
