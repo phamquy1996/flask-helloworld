@@ -44,7 +44,7 @@ jobs:
         id: render-web-container
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ecs/simpleblank/task-definition.json 
+          task-definition: ecs/simpleblank:1.json 
           container-name: zwei-dev-container
           image: ${{ steps.login-ecr.outputs.registry }}/simpleblank:${{ github.sha }}
 
