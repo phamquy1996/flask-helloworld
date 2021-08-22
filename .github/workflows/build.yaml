@@ -53,7 +53,7 @@ jobs:
         with:
           task-definition: ${{ steps.render-web-container.outputs.task-definition }}
           service: simpleblank
-          cluster: simpleblank
+          cluster: simpleblank 
 
 
      
