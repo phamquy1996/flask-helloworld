@@ -1,10 +1,12 @@
-FROM python:3.7-slim
+FROM node:13-alpine
 
-WORKDIR app
+WORKDIR /app
 
-COPY ./src ./
-COPY requirements.txt ./
+ADD . .
 
-RUN pip install -r requirements.txt
+RUN npm install
 
-CMD ["sh", "-c", "gunicorn --bind :$PORT --workers 1 --threads 4 --timeout 0 main:app"]
+# Prints out in the entrypoint.sh when starting container
+ENTRYPOINT ["sh", "/app/entrypoint.sh"]
+
+CMD ["npm", "start"]
