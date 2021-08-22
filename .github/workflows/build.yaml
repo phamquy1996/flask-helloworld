@@ -46,7 +46,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: test
-          image: ${{ steps.login-ecr.outputs.registry }}/simpleblank:${{ github.sha }}
+          image: ${{ steps.login-ecr.outputs.registry }}/simpleblank:phamquy
 
       - name: Deploy to Amazon ECS service
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
