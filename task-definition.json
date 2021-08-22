@@ -15,7 +15,13 @@
         }
       },
       "entryPoint": null,
-      "portMappings": [],
+      "portMappings": [
+          {
+              "containerPort": 3000,
+              "hostPort": 3000,
+              "protocol": "tcp"
+          }
+      ],
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
@@ -31,7 +37,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "simpleblank:6693c056cc2e5f195afd9040b6cd38bb0da61101",
+      "image": "389877403310.dkr.ecr.ap-southeast-1.amazonaws.com/simpleblank:6693c056cc2e5f195afd9040b6cd38bb0da61101",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
