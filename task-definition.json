@@ -9,18 +9,18 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/simpleblank",
+          "awslogs-group": "/ecs/test",
           "awslogs-region": "ap-southeast-1",
           "awslogs-stream-prefix": "ecs"
         }
       },
       "entryPoint": null,
       "portMappings": [
-          {
-              "containerPort": 3000,
-              "hostPort": 3000,
-              "protocol": "tcp"
-          }
+        {
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "containerPort": 3000
+        }
       ],
       "command": null,
       "linuxParameters": null,
@@ -34,7 +34,7 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": null,
+      "memoryReservation": 128,
       "volumesFrom": [],
       "stopTimeout": null,
       "image": "389877403310.dkr.ecr.ap-southeast-1.amazonaws.com/simpleblank:6693c056cc2e5f195afd9040b6cd38bb0da61101",
@@ -54,7 +54,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "simpleblank"
+      "name": "test"
     }
   ],
   "placementConstraints": [],
@@ -64,8 +64,8 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:389877403310:task-definition/simpleblank:1",
-  "family": "simpleblank",
+  "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:389877403310:task-definition/test:1",
+  "family": "test",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -83,7 +83,25 @@
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-ecr-pull"
     },
     {
       "targetId": null,
