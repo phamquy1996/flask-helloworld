@@ -35,10 +35,11 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: simpleblank
-          IMAGE_TAG: latest
+          IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
       - name: Render Amazon ECS task definition
         id: render-web-container
@@ -46,7 +47,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: test
-          image: ${{ steps.login-ecr.outputs.registry }}/simpleblank:latest 
+          image: ${{ steps.login-ecr.outputs.registry }}
 
       - name: Deploy to Amazon ECS service
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -54,6 +55,7 @@ jobs:
           task-definition: ${{ steps.render-web-container.outputs.task-definition }} 
           service: test
           cluster: test 
+          wait-for-service-stability: true
 
 
      
