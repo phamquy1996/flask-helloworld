@@ -2,10 +2,11 @@ name: flask-helloworld
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        type: string
-        default: master
-        required: true
+      anhquy:
+        environment:
+          type: string
+          default: master
+          required: true
 
 jobs:
     docker:
