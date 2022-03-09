@@ -3,11 +3,11 @@ on:
     push:
         brancher: [master]
     workflow_dispatch:
-    inputs:
-      environment:
-        type: string
-        default: master
-        required: true
+      inputs:
+        environment:
+          type: string
+          default: master
+          required: true
 
 jobs:
     docker:
