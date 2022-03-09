@@ -1,7 +1,15 @@
 name: flask-helloworld
 on:
-    push:
-        brancher: [master]
+  workflow_dispatch:
+    inputs:
+      anhquy:
+        description: 'test deployment'
+        default: 'master'
+        required: true
+      pro:
+        description: 'test deployment'
+        default: 'yes'
+        required: true
 
 jobs:
     docker:
