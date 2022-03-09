@@ -3,10 +3,13 @@ on:
   workflow_dispatch:
     inputs:
       anhquy:
-        environment:
-          type: string
-          default: master
-          required: true
+        description: 'test deployment'
+        default: 'master'
+        required: true
+      pro:
+        description: 'test deployment'
+        default: 'yes'
+        required: true
 
 jobs:
     docker:
